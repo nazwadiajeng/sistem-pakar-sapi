@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register Sistem Pakar</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:url("static/bgsapi5.jpg") center/cover no-repeat;
+}
+
+/* background blur */
+body::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+backdrop-filter:blur(15px);
+background:rgba(0,0,0,0.25);
+z-index:-1;
+}
+
+/* container */
+.container{
+display:flex;
+width:820px;
+height:550px;
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* kiri gambar */
+.left{
+width:50%;
+background:url("static/sapi1.jpg") center/cover no-repeat;
+}
+
+/* kanan form */
+.right{
+width:50%;
+padding:35px 45px;
+display:flex;
+flex-direction:column;
+justify-content:flex-start;
+}
+
+/* JUDUL */
+.main-title{
+font-size:32px;
+font-weight:800;
+color:#000;
+line-height:1.3;
+margin-bottom:5px;
+}
+
+.title-line{
+width:60px;
+height:4px;
+background:#FFD233;
+border-radius:5px;
+margin:10px 0 20px 0;
+}
+
+/* REGISTER */
+.title{
+font-size:20px;
+font-weight:600;
+margin-bottom:20px;
+color:#333;
+}
+
+/* input */
+input{
+width:100%;
+padding:13px;
+margin:10px 0;
+border-radius:8px;
+border:1px solid #ddd;
+}
+
+/* button */
+button{
+width:100%;
+padding:13px;
+margin-top:10px;
+border:none;
+border-radius:25px;
+background:#FFD233;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:#ffc107;
+}
+
+/* link login */
+.login{
+margin-top:15px;
+font-size:14px;
+color:#555;
+}
+
+/* link biru */
+.login a{
+text-decoration:none;
+color:#2196F3;
+font-weight:bold;
+}
+
+.login a:hover{
+text-decoration:underline;
+}
+
+/* error */
+.error{
+color:red;
+font-size:13px;
+margin-top:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="left"></div>
+
+<div class="right">
+
+<!-- JUDUL -->
+<div class="main-title">
+Sistem Pakar Diagnosa Penyakit Sapi
+</div>
+
+<div class="title-line"></div>
+
+<div class="title">Register</div>
+
+<form method="POST" action="/register">
+
+<input type="text" name="username" placeholder="Username" required>
+
+<input type="password" name="password" placeholder="Password" required>
+
+<button type="submit">REGISTER</button>
+
+{% if error %}
+<div class="error">{{ error }}</div>
+{% endif %}
+
+</form>
+
+<div class="login">
+Sudah punya akun?
+<a href="/">Login</a>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
